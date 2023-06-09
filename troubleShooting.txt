@@ -1,0 +1,20 @@
+# how to store images in the MongoDB database
+https://sparkbyexamples.com/mongodb/store-images-in-the-mongodb-database/
+1. Using Binary Data 
+2. Using URL Linking for Images in MongoDB
+3. Using Base64 Encoding 
+4. Using GridFS 
+
+
+# how to use Multer to deal with file 
+1. Multer configuration
+    multer.diskStorage() // store the file in the file system, can be local folder or S3 storage place 
+    multer.memoryStorage() // store the file in memoery tile, in other word, convert file to binary data 
+
+2. upload.sing(<the_name_of_file_field_from_request>)/array()
+    it will generate a req.file object which can be used later 
+    the req.file content would be different, which depends on which multer configuration you choose 
+
+In this project, I set the image type be Buffer. That means I store binary data type of image file in mongodb. 
+When client need the image data, I will convert binary to base64 string using .toString('base64') method. 
+
